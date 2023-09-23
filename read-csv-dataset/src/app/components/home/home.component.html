@@ -1,0 +1,17 @@
+
+<div>
+  <h1>Football Players</h1>
+  <mat-card class="card" *ngFor="let item of players">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{ item.name }}</mat-card-title>
+        <mat-card-subtitle>{{ item.club }}</mat-card-subtitle>
+        <img mat-card-sm-image src="{{ item.image }}">
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      {{ item.nationality }}
+    </mat-card-content>
+  </mat-card>
+</div>
+<mat-spinner id="spinner" *ngIf="shouldSpinnerBeStarted"></mat-spinner>
