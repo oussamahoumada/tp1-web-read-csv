@@ -1,0 +1,33 @@
+<div class="filter">
+  <button mat-raised-button color="primary" *ngIf="false">
+    <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSd5D8VRT_rZggfa4b-CPTOCTY4KPggAHlEkzA2Wyp9Xn4P2cw/viewform?usp=sf_link">
+      Chose your player
+    </a>
+  </button><br>
+
+  <button mat-raised-button color="primary" (click)="showChart()">open Chart</button>
+
+  <mat-form-field class="example-form-field" style="float: right;">
+    <mat-label>Filter</mat-label>
+    <input matInput #filtr type="text" (input)="filter(filtr)">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+
+<div class="container">
+  <h1>Football Players</h1>
+
+  <mat-card class="card" *ngFor="let item of players">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{ item.name }}</mat-card-title>
+        <mat-card-subtitle class="card-footer">{{ item.club }}</mat-card-subtitle>
+        <img mat-card-sm-image src="{{ item.image }}">
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content class="card-footer">
+      {{ item.nationality }}
+    </mat-card-content>
+  </mat-card>
+</div>
+<mat-spinner id="spinner" *ngIf="shouldSpinnerBeStarted"></mat-spinner>

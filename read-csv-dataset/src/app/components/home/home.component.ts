@@ -26,11 +26,11 @@ export class HomeComponent implements OnInit {
       let pl: any = [];
       playersList.forEach((element: any) => {
         let obj: player = {
-          id: element[0],
-          name: element[1],
-          club: element[7],
-          image: element[11],
-          nationality: element[6],
+          id: element[1],
+          name: element[2],
+          club: element[3],
+          image: element[5],
+          nationality: element[4],
         };
         this.players.push(obj);
       });
@@ -41,7 +41,5 @@ export class HomeComponent implements OnInit {
       this.shouldSpinnerBeStarted = false;
     });
   }
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 }
