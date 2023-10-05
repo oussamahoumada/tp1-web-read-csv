@@ -9,8 +9,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-
-
 const materials = [
   MatCardModule,
   MatIconModule,

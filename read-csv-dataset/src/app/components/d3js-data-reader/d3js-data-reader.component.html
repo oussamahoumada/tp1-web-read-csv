@@ -17,10 +17,10 @@
 <div class="container">
   <h1>Football Players</h1>
 
-  <mat-card class="card" *ngFor="let item of players">
+  <mat-card class="card" *ngFor="let item of players|slice:((paginator.pageIndex)*paginator.pageSize):((paginator.pageIndex+1)*paginator.pageSize)">
     <mat-card-header>
       <mat-card-title-group>
-        <mat-card-title>{{ item.name }}</mat-card-title>
+        <mat-card-title class="card-footer">{{ item.name }}</mat-card-title>
         <mat-card-subtitle class="card-footer">{{ item.club }}</mat-card-subtitle>
         <img mat-card-sm-image src="{{ item.image }}">
       </mat-card-title-group>
@@ -31,3 +31,5 @@
   </mat-card>
 </div>
 <mat-spinner id="spinner" *ngIf="shouldSpinnerBeStarted"></mat-spinner>
+
+<mat-paginator #paginator [length]="players.length" [pageSize]="20"></mat-paginator>

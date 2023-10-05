@@ -2,12 +2,13 @@ a {
   text-decoration: none;
   color: white;
 }
+
 .filter{
   margin: 2% 6%;
 }
+
 .container {
   padding: 0 5%;
-  text-align: center;
 }
 
 h1 {
@@ -24,8 +25,9 @@ h1 {
 }
 
 img{
-  width: 100px;
+  width: 40%;
   height: 100px;
+  border-radius: 10%;
 }
 
 .card-footer {

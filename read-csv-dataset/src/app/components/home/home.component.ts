@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   public players: player[] = [];
   public shouldSpinnerBeStarted = false;
 
-  constructor(private sharedService: SharedService) {this.loadData(); }
+  constructor(private sharedService: SharedService) { this.loadData(); }
 
   loadData() {
     this.shouldSpinnerBeStarted = true;
@@ -23,16 +23,17 @@ export class HomeComponent implements OnInit {
       const getDataFromDoc = vertuelDOM.parseFromString(res, "text/html");
       const data: string[][] = extractCSVDataFromHTML(getDataFromDoc);
       let playersList = data.slice(1);
-      let pl: any = [];
       playersList.forEach((element: any) => {
         let obj: player = {
-          id: element[1],
-          name: element[2],
+          id: element[0],
+          name: element[1],
           club: element[3],
-          image: element[5],
-          nationality: element[4],
+          image: element[4],
+          nationality: element[2],
         };
-        this.players.push(obj);
+        if (obj.club != "Club" && obj.club != "") {
+          this.players.push(obj);
+        }
       });
       swal.fire({ width: 400, timer: 2000, icon: 'success', showConfirmButton: false });
       this.shouldSpinnerBeStarted = false;
